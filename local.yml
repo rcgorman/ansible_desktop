@@ -5,12 +5,40 @@
   become: true
 
   tasks:
+  - name: Add the flathub flatpak repository
+    flatpak_remote:
+      name: flathub
+      state: present
+      flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+  - name: Install flatpak packages
+
+
   - name: Overlay packages
     community.general.rpm_ostree_pkg:
       name:
-        - eza
         - btop
+        - distrobox
+        - eza
+        - fastfetch
         - tmux
         - vim
       state: present
+
+  - name: Copy wallpaper file
+    copy:
+      src: files/ublue.png
+      dest: /usr/share/backgrounds/ublue.png
+      owner: root
+      group: root
+
+  - name: Set wallpaper
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file:///usr/share/backgrounds/ublue.png'"
+
+  - name: Set wallpaper position
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
 
