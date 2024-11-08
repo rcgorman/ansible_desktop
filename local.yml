@@ -39,7 +39,7 @@
   - name: Copy wallpaper file
     copy:
       src: files/ublue.png
-      dest: /.local/share/backgrounds/ublue.png
+      dest: /var/home/ryan/.local/share/backgrounds/ublue.png
       owner: root
       group: root
 
@@ -47,7 +47,7 @@
     become_user: ryan
     dconf:
       key: "/org/gnome/desktop/background/picture-uri"
-      value: "'file:///.local/share/backgrounds/ublue.png'"
+      value: "'file:///var/home/ryan/.local/share/backgrounds/ublue.png'"
 
   - name: Set wallpaper position
     become_user: ryan
