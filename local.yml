@@ -10,6 +10,8 @@
       name:
         - htop
         - ranger
+        - imghdr
         - eza
+        - vim-gnome
       state: present
 
