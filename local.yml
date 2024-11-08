@@ -8,10 +8,9 @@
   - name: Overlay packages
     community.general.rpm_ostree_pkg:
       name:
-        - htop
-        - ranger
-        - imghdr
         - eza
-        - vim-gnome
+        - btop
+        - tmux
+        - vim
       state: present
 
