@@ -5,7 +5,11 @@
   become: true
 
   tasks:
-  - name: install htop
-    package:
-      name: htop
+  - name: Overlay packages
+    community.general.rpm_ostree_pkg:
+      name:
+        - htop
+        - ranger
+        - eza
+      state: present
 
