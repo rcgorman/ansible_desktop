@@ -12,7 +12,18 @@
       flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
   - name: Install flatpak packages
-
+    flatpak:
+      remote: flathub
+      name:
+        - com.github.IsmaelMartinez.teams_for_linux
+        - io.github.dvlv.boxbuddyrs
+        - io.gitlab.librewolf-community
+        - md.obsidian.Obsidian
+        - org.flameshot.Flameshot
+        - org.gimp.GIMP
+        - org.gnome.Evolution
+        - org.onlyoffice.desktopeditors
+        - org.remmina.Remmina
 
   - name: Overlay packages
     community.general.rpm_ostree_pkg:
@@ -33,11 +44,13 @@
       group: root
 
   - name: Set wallpaper
+    become_user: ryan
     dconf:
       key: "/org/gnome/desktop/background/picture-uri"
       value: "'file:///usr/share/backgrounds/ublue.png'"
 
   - name: Set wallpaper position
+    become_user: ryan
     dconf:
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
