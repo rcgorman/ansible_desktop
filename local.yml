@@ -1,5 +1,5 @@
 ---
-- name: setup workstation
+- name: Setup workstation
   hosts: localhost
   connection: local
   become: true
@@ -31,6 +31,7 @@
         - distrobox
         - eza
         - fastfetch
+        - iwd
         - tmux
         - vim
       state: present
